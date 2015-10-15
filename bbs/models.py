@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 # Create your models here.
 class BBS(models.Model):
@@ -16,7 +17,10 @@ class Category(models.Model):
 
 class BBS_user(models.Model):
 # fix it
-    name = models.CharField(max_length=50)
-    signature = models.CharField(max_length=128)
-    photo = models.FileField()
+    user = models.OneToOneField(User,null=True)
+    signature = models.CharField(max_length=128,default='lazy guy,nothing left')
+    #photo = models.ImageField(upload_to='upload_imgs/',dufault='upload_imgs/u=1678328676,1216794096&fm=23&gp=0.jpg')
+    photo = models.ImageField(upload_to='upload_imgs/',null=True)
+    def __unicode__(self):
+        return self.user.username
 
