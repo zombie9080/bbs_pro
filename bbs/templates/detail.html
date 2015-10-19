@@ -1,0 +1,19 @@
+{% extends 'home.html' %}
+{% block title %}
+{{ bbs.title }}
+{% endblock %}
+
+{% block link %}
+{% endblock %}
+
+{% block content %}
+<a href='{% url 'index' %}'>返回首页</a><br>
+title: {{bbs.title}}<br>
+author: {{bbs.author}}<br>
+create_date: {{bbs.create_date}}<hr>
+content: {{bbs.content}}<br>
+{% include "duoshuo.html" %}
+{% endblock %}
+
+{% block js %}
+{% endblock %}

@@ -17,5 +17,6 @@ from django.conf.urls import include, url
 from views import *
 
 urlpatterns = [
-    url(r'^index/$',index,name='index'),
+    url(r'^$',index,name='index'),
+	url(r'^detail/(?P<id>\d+)$',detail,name='detail'),
 ]

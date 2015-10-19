@@ -1,0 +1,27 @@
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/搜索html; charset=gb2312">
+		<title>
+		{% block title %}
+			home
+		{% endblock %}
+		</title>
+		{% block link %}
+		{% endblock %}
+	</head>
+	<body>
+		{% block content %}
+		articles
+		{% for it in bbs %}
+		<a href='{% url 'detail' id=it.id  %}'>title: {{it.title}}</a>
+		summary: {{it.summary}}
+		author: {{it.author}}
+		view_count: {{it.view_count}}
+		create_date: {{it.create_date}}
+		<hr>
+		{% endfor %}
+		{% endblock %}
+		{% block js %}
+		{% endblock %}
+	</body>
+</html>
